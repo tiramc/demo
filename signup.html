@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hackbright Front End Demo Day</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+</head>
+<body>
+	<h2 class="signup-title">Sign up for Frontend Demo Day</h2>
+	<input id="email" name="email" type="email" placeholder="Your email" required>
+	<button id="signup-button" type="submit">RSVP</button>
+	<button id="get-data" type="submit">Get Date</button>
+
+	<script>
+		$(function(){
+			var myFireBase = new Firebase ("https://radiant-inferno-1748.firebaseio.com/");
+			$("#signup-button").click(function(){
+				var data = {}
+				data.key = "email";
+				data.value = $("#email").val();
+				myFireBaseRef.push(data);
+				$("#email").val("");
+		});
+		$("#get-data").click(function(){
+			myFireBaseRef.on("value", function(snapshot){
+				snapshot.forEach(function(child.snapshot.val)().value);
+
+		});
+	});
+});
+</script>
+</body>
+</html>
+
